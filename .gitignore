@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# VS files
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
