@@ -60,3 +60,4 @@ dkms.conf
 /kernel/mysimpleos.bin
 /kernel/mysimpleos.iso
 /.vs
+/build/out
