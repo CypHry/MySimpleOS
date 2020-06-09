@@ -56,3 +56,7 @@ dkms.conf
 /.vs/slnx.sqlite
 /.vs/MySimpleOS/v16/.suo
 /.vs/MySimpleOS/v16
+/kernel/boot
+/kernel/mysimpleos.bin
+/kernel/mysimpleos.iso
+/.vs
