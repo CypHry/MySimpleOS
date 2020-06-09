@@ -1,3 +1,5 @@
+__start__: install 
+
 include build/Makefile.defs
 
 kernel_all: 
