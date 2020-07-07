@@ -1,0 +1,42 @@
+# Makefile definitions 
+MY_OS_NAME	:= MySimpleOS
+
+
+# Directories
+MKFILE_DEFS_DIR := $(abspath $(lastword $(MAKEFILE_LIST)))
+BUILD_DIR		:= $(patsubst %/,%,$(dir $(MKFILE_DEFS_DIR)))
+ROOT_DIR		:= $(patsubst %/,%,$(dir $(BUILD_DIR)))
+OUT_DIR			:= $(BUILD_DIR)/out
+MY_OS_OUT_DIR	:= $(OUT_DIR)/$(MY_OS_NAME)
+KERNEL_DIR		:= $(ROOT_DIR)/kernel
+KERNEL_OUT_DIR	:= $(OUT_DIR)/kernel
+
+
+# Cross compilers
+AS			:= i686-elf-as
+CC			:= i686-elf-gcc
+CXX			:= i686-elf-g++
+
+
+# Compile flags
+FLAGS		:= -ffreestanding -O2 -Wall -Wextra
+CFLAGS		:= -std=gnu99
+CXXFLAGS	:= -fno-exepctions -fno-ritti
+LDFLAGS	:= -ffreestanding -O2 -nostdlib
+LDLIBS		:= -lgcc
+
+
+# Generic commands 
+%.o: %.s
+	$(AS) $< -o $(OUT_DIR)/$@ 
+
+%.o: %.c
+	$(CC) -c $< -o $(OUT_DIR)/$@ $(FLAGS) $(CFLAGS)
+
+%.o: %.cpp
+	$(CXX) -c $< -o $(OUT_DIR)/$@ $(FLAGS) $(CXXFLAGS)
+
+rmout:
+	rm -rf $(BUILD_DIR)/out
+
+
