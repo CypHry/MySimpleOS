@@ -17,3 +17,5 @@ install: kernel_all
 run: 
 	qemu-system-i386 -cdrom $(MY_OS_OUT_DIR)/$(MY_OS_NAME).iso -curses
 
+clean:
+	rm -rf $(OUT_DIR)
